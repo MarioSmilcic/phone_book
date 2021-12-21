@@ -1,0 +1,47 @@
+import styles from "./Navbar.module.scss";
+import Logo from "../assets/logo.png";
+import { NavLink } from "react-router-dom";
+
+const Navbar = () => {
+  const links = [
+    {
+      id: 1,
+      path: "/",
+      text: "Pocetna",
+    },
+    {
+      id: 1,
+      path: "/about",
+      text: "O Nama",
+    },
+    {
+      id: 1,
+      path: "/contact",
+      text: "Kontakt",
+    },
+  ];
+
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.logo}>
+        <img src={Logo} alt="logo"></img>
+        <h4>Dashboard</h4>
+      </div>
+      <div className={styles.links}>
+        <ul>
+          {links.map((link) => {
+            return (
+              <li key={link.id}>
+                <NavLink to={link.path} activeClassName={styles.active} exact>
+                  {link.text}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

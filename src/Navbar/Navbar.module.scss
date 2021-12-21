@@ -1,0 +1,38 @@
+@import "../Variables/Variables.module.scss";
+
+.navbar {
+  background-color: $primaryColor;
+  color: $textColor1;
+  height: 82px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    height: 2.5rem;
+    width: 2rem;
+    margin: 1rem;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    li a {
+      text-decoration: none;
+      color: $textColor1;
+      margin: 1.4rem;
+      padding: 1.4rem;
+      border-radius: 1rem;
+      &:hover,
+      &.active {
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
