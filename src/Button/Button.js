@@ -1,9 +1,6 @@
+import styles from "./Button.module.scss";
 const Button = () => {
-  return (
-    <div>
-      <p>Hello from Button</p>
-    </div>
-  );
+  return <button className={styles.button}>Dodaj Novi</button>;
 };
 
 export default Button;
