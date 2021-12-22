@@ -7,7 +7,7 @@ const Navbar = () => {
     {
       id: 1,
       path: "/",
-      text: "Pocetna",
+      text: "Početna",
     },
     {
       id: 1,
