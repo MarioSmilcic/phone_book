@@ -1,14 +1,9 @@
 @import "../Variables/Variables.module.scss";
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+  @include displayFlex(center, center);
+  @include font($textColor1, 1rem, 600);
   background-color: $primaryColor;
-  color: $textColor1;
   width: 15rem;
   height: 3.5rem;
   border-radius: 16px;

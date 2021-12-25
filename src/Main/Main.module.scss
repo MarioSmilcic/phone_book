@@ -1,12 +1,18 @@
+@import "../Variables/Variables.module.scss";
+
 .main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include displayFlex(space-between, center);
   width: 60vw;
   margin: 1.5rem 1rem;
   h4 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 1.5rem;
+    @include font($textColor2, 1.5rem, 600);
   }
+}
+
+.phoneListContainer {
+  border: 1px solid #14142b40;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 1rem;
+  width: 60vw;
 }
