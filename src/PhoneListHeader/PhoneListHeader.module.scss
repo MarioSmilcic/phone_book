@@ -1,0 +1,21 @@
+@import "../Variables/Variables.module.scss";
+
+.table {
+  @include table();
+  @include font($textColor1, 1.1rem, 600);
+
+  thead,
+  tr {
+    display: contents;
+  }
+
+  th {
+    padding: 1.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: $primaryColor;
+    text-align: left;
+  }
+}
