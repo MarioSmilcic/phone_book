@@ -1,16 +1,11 @@
 @import "../Variables/Variables.module.scss";
 
 .navbar {
+  @include displayFlex(space-between, center);
+  @include font($textColor1, 1.5rem, 600);
   background-color: $primaryColor;
-  color: $textColor1;
-  height: 82px;
+  height: 5.125rem;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
 
   img {
     height: 2.5rem;
