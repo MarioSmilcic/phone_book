@@ -3,7 +3,7 @@
 .table {
   @include table();
   @include font($textColor1, 1.1rem, 600);
-
+  height: 4.125rem;
   thead,
   tr {
     display: contents;
