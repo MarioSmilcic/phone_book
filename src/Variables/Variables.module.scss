@@ -4,13 +4,14 @@ $primaryColor: #3faad7;
 $textColor1: #fff;
 $textColor2: #000;
 $textColor3: #14142b;
+$borderColor: #14142b;
 
 //MIXINS
 
 @mixin table {
   display: grid;
   border-collapse: collapse;
-  grid-template-columns: 1fr 1fr 1.6fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1.6fr 1fr 0.6fr;
   line-height: 1.5rem;
 }
 
@@ -25,4 +26,9 @@ $textColor3: #14142b;
   display: flex;
   justify-content: $jc;
   align-items: $ai;
+}
+
+@mixin border($color) {
+  border: 1px solid $color;
+  border-radius: 16px;
 }
