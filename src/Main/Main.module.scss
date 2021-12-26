@@ -2,7 +2,7 @@
 
 .main {
   @include displayFlex(space-between, center);
-  width: 60vw;
+  width: 65vw;
   margin: 1.5rem 1rem;
   h4 {
     @include font($textColor2, 1.5rem, 600);
@@ -10,9 +10,12 @@
 }
 
 .phoneListContainer {
-  border: 1px solid #14142b40;
-  border-radius: 16px;
+  @include border(#14142b40);
   overflow: hidden;
   margin: 1rem;
-  width: 60vw;
+  width: 65vw;
+}
+
+.container {
+  display: flex;
 }
