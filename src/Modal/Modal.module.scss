@@ -1,0 +1,46 @@
+@import "../Variables/Variables.module.scss";
+
+.modal {
+  @include border(rgba(20, 20, 43, 0.25));
+  @include displayFlex(flex-start, center);
+  flex-direction: column;
+  width: auto;
+  margin: 1rem;
+  padding: 0 1.5rem;
+  margin-left: 0;
+  background-color: #f9fafc;
+  Button {
+    width: 25.25rem;
+    margin-top: 0.8rem;
+  }
+  h4 {
+    @include font($textColor2, 1.4rem, 600);
+    margin: 1rem;
+  }
+  img {
+    width: 14px;
+    height: 14px;
+  }
+  input {
+    @include font($textColor3, 1rem, 300);
+    border-color: transparent;
+    outline: none;
+    padding-left: 1rem;
+  }
+}
+
+.modalHeader {
+  @include displayFlex(space-between, center);
+  width: 100%;
+}
+
+.input {
+  @include displayFlex(flex-start, center);
+  @include border($borderColor);
+  background: #fff;
+  opacity: 0.5;
+  box-sizing: border-box;
+  margin: 0.8rem;
+  width: 100%;
+  height: 3.5rem;
+}
