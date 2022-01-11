@@ -7,10 +7,10 @@ const PhoneListBody = (props) => {
     <table className={styles.table}>
       <tbody>
         <tr>
-          <td>{props.ime}</td>
-          <td>{props.prezime}</td>
+          <td>{props.name}</td>
+          <td>{props.lastName}</td>
           <td>{props.email}</td>
-          <td>{props.brojTelefona}</td>
+          <td>{props.phone}</td>
           <td>
             <img src={Edit} alt="edit" />
             <img src={Delete} alt="delete" />
