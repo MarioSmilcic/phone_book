@@ -1,30 +1,91 @@
+import { useState } from "react";
+
 import styles from "./Modal.module.scss";
 import Exit from "../assets/exit.svg";
 import Button from "../Button/Button";
 
-const Modal = () => {
-  const input = [
-    { id: 1, type: "text", placeholder: "Ime" },
-    { id: 2, type: "text", placeholder: "Prezime" },
-    { id: 3, type: "email", placeholder: "Email" },
-    { id: 4, type: "tel", placeholder: "Broj telefona" },
-  ];
+const Modal = (props) => {
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredLastname, setEnteredLastname] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPhone, setEnteredPhone] = useState("");
+
+  const addNameHandler = (e) => {
+    setEnteredName(e.target.value);
+  };
+
+  const addLastnameHandler = (e) => {
+    setEnteredLastname(e.target.value);
+  };
+
+  const addEmailHandler = (e) => {
+    setEnteredEmail(e.target.value);
+  };
+
+  const addPhoneHandler = (e) => {
+    setEnteredPhone(e.target.value);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const Contact = {
+      name: enteredName,
+      lastName: enteredLastname,
+      email: enteredEmail,
+      phone: enteredPhone,
+      id: Math.random().toString(),
+    };
+
+    props.onSaveContact(Contact);
+
+    setEnteredName("");
+    setEnteredLastname("");
+    setEnteredEmail("");
+    setEnteredPhone("");
+  };
 
   return (
-    <div className={styles.modal}>
+    <form onSubmit={submitHandler} className={styles.modal}>
       <div className={styles.modalHeader}>
         <h4>Dodaj novi zapis</h4>
-        <img src={Exit} alt="exit" />
+        <img onClick={props.onClose} src={Exit} alt="exit" />
       </div>
-      {input.map((el) => {
-        return (
-          <div className={styles.input}>
-            <input id={el.id} type={el.type} placeholder={el.placeholder} />
-          </div>
-        );
-      })}
+      <div className={styles.input}>
+        <input
+          type="text"
+          placeholder="Ime"
+          onChange={addNameHandler}
+          value={enteredName}
+        />
+      </div>
+      <div className={styles.input}>
+        <input
+          type="text"
+          placeholder="Prezime"
+          onChange={addLastnameHandler}
+          value={enteredLastname}
+        />
+      </div>
+      <div className={styles.input}>
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={addEmailHandler}
+          value={enteredEmail}
+        />
+      </div>
+      <div className={styles.input}>
+        <input
+          type="tel"
+          placeholder="Broj telefona"
+          onChange={addPhoneHandler}
+          value={enteredPhone}
+        />
+      </div>
+
       <Button text={"Dodaj"} />
-    </div>
+    </form>
   );
 };
 

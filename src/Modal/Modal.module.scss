@@ -20,6 +20,9 @@
   img {
     width: 14px;
     height: 14px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   input {
     @include font($textColor3, 1rem, 300);
