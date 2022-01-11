@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
 import PhoneListHeader from "../PhoneListHeader/PhoneListHeader";
@@ -7,7 +7,7 @@ import Modal from "../Modal/Modal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);
-  const [Contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState([]);
 
   const OpenModalHandler = () => {
     setModal(true);
@@ -23,6 +23,20 @@ const Main = () => {
     });
   };
 
+  useEffect(() => {
+    const temp = localStorage.getItem("addContact");
+    const loadedContacts = JSON.parse(temp);
+
+    if (loadedContacts) {
+      setContacts(loadedContacts);
+    }
+  }, []);
+
+  useEffect(() => {
+    const temp = JSON.stringify(contacts);
+    localStorage.setItem("addContact", temp);
+  }, [contacts]);
+
   return (
     <>
       <div className={styles.main}>
@@ -32,7 +46,7 @@ const Main = () => {
       <div className={styles.container}>
         <div className={styles.phoneListContainer}>
           <PhoneListHeader />
-          {Contacts.map((contact) => {
+          {contacts.map((contact) => {
             return (
               <PhoneListBody
                 key={contact.id}
