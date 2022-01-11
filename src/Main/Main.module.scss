@@ -2,8 +2,9 @@
 
 .main {
   @include displayFlex(space-between, center);
-  width: 65vw;
+  width: 20%;
   margin: 1.5rem 1rem;
+  width: 65vw;
   h4 {
     @include font($textColor2, 1.5rem, 600);
   }
@@ -19,3 +20,9 @@
 .container {
   display: flex;
 }
+
+/* .flexContainer {
+  display: flex;
+  flex-direction: column;
+}
+ */

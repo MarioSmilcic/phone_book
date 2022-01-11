@@ -10,12 +10,12 @@ const Navbar = () => {
       text: "Početna",
     },
     {
-      id: 1,
+      id: 2,
       path: "/about",
       text: "O Nama",
     },
     {
-      id: 1,
+      id: 3,
       path: "/contact",
       text: "Kontakt",
     },

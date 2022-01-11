@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
 import PhoneListHeader from "../PhoneListHeader/PhoneListHeader";
@@ -5,115 +6,61 @@ import PhoneListBody from "../PhoneListBody/PhoneListBody";
 import Modal from "../Modal/Modal";
 
 const Main = () => {
-  const DUMMY_DATA = [
-    {
-      id: 1,
-      ime: "Marko",
-      prezime: "Markovic",
-      email: "markomarkovic@gmail.com",
-      brojTelefona: 555333,
-    },
-    {
-      id: 2,
-      ime: "Petar",
-      prezime: "Petrovic",
-      email: "petarpetrovic@gmail.com",
-      brojTelefona: 225883,
-    },
-    {
-      id: 3,
-      ime: "Zoran",
-      prezime: "Zoranovic",
-      email: "zoranzoranovic@gmail.com",
-      brojTelefona: 333555,
-    },
-    {
-      id: 1,
-      ime: "Marko",
-      prezime: "Markovic",
-      email: "markomarkovic@gmail.com",
-      brojTelefona: 555333,
-    },
-    {
-      id: 2,
-      ime: "Petar",
-      prezime: "Petrovic",
-      email: "petarpetrovic@gmail.com",
-      brojTelefona: 225883,
-    },
-    {
-      id: 3,
-      ime: "Zoran",
-      prezime: "Zoranovic",
-      email: "zoranzoranovic@gmail.com",
-      brojTelefona: 333555,
-    },
-    {
-      id: 1,
-      ime: "Marko",
-      prezime: "Markovic",
-      email: "markomarkovic@gmail.com",
-      brojTelefona: 555333,
-    },
-    {
-      id: 2,
-      ime: "Petar",
-      prezime: "Petrovic",
-      email: "petarpetrovic@gmail.com",
-      brojTelefona: 225883,
-    },
-    {
-      id: 3,
-      ime: "Zoran",
-      prezime: "Zoranovic",
-      email: "zoranzoranovic@gmail.com",
-      brojTelefona: 333555,
-    },
-    {
-      id: 1,
-      ime: "Marko",
-      prezime: "Markovic",
-      email: "markomarkovic@gmail.com",
-      brojTelefona: 555333,
-    },
-    {
-      id: 2,
-      ime: "Petar",
-      prezime: "Petrovic",
-      email: "petarpetrovic@gmail.com",
-      brojTelefona: 225883,
-    },
-    {
-      id: 3,
-      ime: "Zoran",
-      prezime: "Zoranovic",
-      email: "zoranzoranovic@gmail.com",
-      brojTelefona: 333555,
-    },
-  ];
+  const [modal, setModal] = useState(false);
+  const [contacts, setContacts] = useState([]);
+
+  const OpenModalHandler = () => {
+    setModal(true);
+  };
+
+  const CloseModalHandler = () => {
+    setModal(null);
+  };
+
+  const newContact = (enteredContact) => {
+    setContacts((prevContacts) => {
+      return [enteredContact, ...prevContacts];
+    });
+  };
+
+  useEffect(() => {
+    const temp = localStorage.getItem("addContact");
+    const loadedContacts = JSON.parse(temp);
+
+    if (loadedContacts) {
+      setContacts(loadedContacts);
+    }
+  }, []);
+
+  useEffect(() => {
+    const temp = JSON.stringify(contacts);
+    localStorage.setItem("addContact", temp);
+  }, [contacts]);
 
   return (
     <>
       <div className={styles.main}>
         <h4>Kontakti</h4>
-        <Button text={"Dodaj Novi"} />
+        <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
       </div>
       <div className={styles.container}>
         <div className={styles.phoneListContainer}>
           <PhoneListHeader />
-          {DUMMY_DATA.map((contact) => {
+          {contacts.map((contact) => {
             return (
               <PhoneListBody
                 key={contact.id}
-                ime={contact.ime}
-                prezime={contact.prezime}
+                name={contact.name}
+                lastName={contact.lastName}
                 email={contact.email}
-                brojTelefona={contact.brojTelefona}
+                phone={contact.phone}
               />
             );
           })}
         </div>
-        <Modal />
+        {modal && (
+          <Modal onClose={CloseModalHandler} onSaveContact={newContact} />
+        )}
       </div>
     </>
   );
