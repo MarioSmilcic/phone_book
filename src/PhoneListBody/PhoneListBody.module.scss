@@ -20,5 +20,8 @@
 
   img {
     margin-right: 1.2rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
