@@ -17,11 +17,25 @@ const Main = () => {
     setModal(null);
   };
 
+  //ADDING NEW CONTACT
+
   const newContact = (enteredContact) => {
     setContacts((prevContacts) => {
       return [enteredContact, ...prevContacts];
     });
   };
+
+  //DELETING
+
+  const deleteContact = (id) => {
+    setContacts([
+      ...contacts.filter((contact) => {
+        return contact.id !== id;
+      }),
+    ]);
+  };
+
+  //STORING AND GETING FROM LOCAL STORAGE
 
   useEffect(() => {
     const temp = localStorage.getItem("addContact");
@@ -54,6 +68,8 @@ const Main = () => {
                 lastName={contact.lastName}
                 email={contact.email}
                 phone={contact.phone}
+                onDelete={deleteContact}
+                contact={contact}
               />
             );
           })}
