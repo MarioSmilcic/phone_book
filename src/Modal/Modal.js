@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./Modal.module.scss";
 import Exit from "../assets/exit.svg";
 import Button from "../Button/Button";
+import { v4 as uuidv4 } from "uuid";
 
 const Modal = (props) => {
   const [enteredName, setEnteredName] = useState("");
@@ -34,7 +35,7 @@ const Modal = (props) => {
       lastName: enteredLastname,
       email: enteredEmail,
       phone: enteredPhone,
-      id: Math.random().toString(),
+      id: uuidv4(),
     };
 
     props.onSaveContact(Contact);
