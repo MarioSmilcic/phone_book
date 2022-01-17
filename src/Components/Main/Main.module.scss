@@ -1,4 +1,4 @@
-@import "../Variables/Variables.module.scss";
+@import "../config";
 
 .main {
   @include displayFlex(space-between, center);

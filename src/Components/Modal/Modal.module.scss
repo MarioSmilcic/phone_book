@@ -1,4 +1,4 @@
-@import "../Variables/Variables.module.scss";
+@import "../config";
 
 .modal {
   @include border(rgba(20, 20, 43, 0.25));
@@ -12,6 +12,8 @@
   Button {
     width: 25.25rem;
     margin-top: 0.8rem;
+    // padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
   h4 {
     @include font($textColor2, 1.4rem, 600);

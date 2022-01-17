@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
 import PhoneListHeader from "../PhoneListHeader/PhoneListHeader";
-import PhoneListBody from "../PhoneListBody/PhoneListBody";
+import PhoneList from "../PhoneList/PhoneList";
 import Modal from "../Modal/Modal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);
   const [contacts, setContacts] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+
+  //MODAL OPEN & CLOSE
 
   const OpenModalHandler = () => {
     setModal(true);
@@ -15,6 +18,7 @@ const Main = () => {
 
   const CloseModalHandler = () => {
     setModal(null);
+    setIsEditing(null);
   };
 
   //ADDING NEW CONTACT
@@ -35,15 +39,19 @@ const Main = () => {
     ]);
   };
 
-  //STORING AND GETING FROM LOCAL STORAGE
+  //EDITING
+
+  const startEditingHandler = (id) => {
+    setIsEditing(true);
+  };
+
+  //STORING AND GETING CONTACTS FROM LOCAL STORAGE
 
   useEffect(() => {
     const temp = localStorage.getItem("addContact");
     const loadedContacts = JSON.parse(temp);
 
-    if (loadedContacts) {
-      setContacts(loadedContacts);
-    }
+    loadedContacts && setContacts(loadedContacts);
   }, []);
 
   useEffect(() => {
@@ -62,19 +70,20 @@ const Main = () => {
           <PhoneListHeader />
           {contacts.map((contact) => {
             return (
-              <PhoneListBody
+              <PhoneList
                 key={contact.id}
                 name={contact.name}
                 lastName={contact.lastName}
                 email={contact.email}
                 phone={contact.phone}
-                onDelete={deleteContact}
                 contact={contact}
+                onDelete={deleteContact}
+                onEdit={startEditingHandler}
               />
             );
           })}
         </div>
-        {modal && (
+        {(modal || isEditing) && (
           <Modal onClose={CloseModalHandler} onSaveContact={newContact} />
         )}
       </div>

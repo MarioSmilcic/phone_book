@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import styles from "./Modal.module.scss";
-import Exit from "../assets/exit.svg";
+import Exit from "../../assets/exit.svg";
 import Button from "../Button/Button";
 import { v4 as uuidv4 } from "uuid";
 
