@@ -1,4 +1,4 @@
-@import "../Variables/Variables.module.scss";
+@import "../config";
 
 .button {
   @include displayFlex(center, center);
