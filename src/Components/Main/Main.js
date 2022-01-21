@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
 import PhoneListHeader from "../PhoneListHeader/PhoneListHeader";
-import PhoneList from "../PhoneList/PhoneList";
+import ContactList from "../ContactList/ContactList";
 import Modal from "../Modal/Modal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);
   const [contacts, setContacts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
+  const [edit, setEdit] = useState();
 
   //MODAL OPEN & CLOSE
 
@@ -39,10 +40,24 @@ const Main = () => {
     ]);
   };
 
-  //EDITING
+  //EDIT
 
-  const startEditingHandler = (id) => {
+  const startEditingHandler = (contact) => {
     setIsEditing(true);
+
+    setEdit(contact);
+  };
+
+  const updatedContact = (updatedContact) => {
+    setEdit(updatedContact);
+    setContacts(
+      contacts.map((contact) => {
+        if (contact.id === updatedContact.id) {
+          contact = updatedContact;
+        }
+        return contact;
+      })
+    );
   };
 
   //STORING AND GETING CONTACTS FROM LOCAL STORAGE
@@ -66,11 +81,11 @@ const Main = () => {
         <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
       </div>
       <div className={styles.container}>
-        <div className={styles.phoneListContainer}>
+        <div className={styles.contactListContainer}>
           <PhoneListHeader />
           {contacts.map((contact) => {
             return (
-              <PhoneList
+              <ContactList
                 key={contact.id}
                 name={contact.name}
                 lastName={contact.lastName}
@@ -84,7 +99,14 @@ const Main = () => {
           })}
         </div>
         {(modal || isEditing) && (
-          <Modal onClose={CloseModalHandler} onSaveContact={newContact} />
+          <Modal
+            onClose={CloseModalHandler}
+            onSaveContact={newContact}
+            edit={edit}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            onUpdateContact={updatedContact}
+          />
         )}
       </div>
     </>

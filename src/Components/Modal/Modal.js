@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./Modal.module.scss";
 import Exit from "../../assets/exit.svg";
@@ -27,18 +27,44 @@ const Modal = (props) => {
     setEnteredPhone(e.target.value);
   };
 
+  const contact = props.edit;
+
+  const isEditing = props.isEditing;
+
+  const setIsEditing = props.setIsEditing;
+
+  useEffect(() => {
+    if (isEditing) {
+      setEnteredName(contact.name);
+      setEnteredLastname(contact.lastName);
+      setEnteredEmail(contact.email);
+      setEnteredPhone(contact.phone);
+    }
+  }, []);
+
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const Contact = {
-      name: enteredName,
-      lastName: enteredLastname,
-      email: enteredEmail,
-      phone: enteredPhone,
-      id: uuidv4(),
-    };
-
-    props.onSaveContact(Contact);
+    if (!isEditing) {
+      const Contact = {
+        name: enteredName,
+        lastName: enteredLastname,
+        email: enteredEmail,
+        phone: enteredPhone,
+        id: uuidv4(),
+      };
+      props.onSaveContact(Contact);
+    } else {
+      const updatedContact = {
+        name: enteredName,
+        lastName: enteredLastname,
+        email: enteredEmail,
+        phone: enteredPhone,
+        id: contact.id,
+      };
+      props.onUpdateContact(updatedContact);
+      setIsEditing(false);
+    }
 
     setEnteredName("");
     setEnteredLastname("");
@@ -85,7 +111,7 @@ const Modal = (props) => {
         />
       </div>
 
-      <Button text={"Dodaj"} />
+      <Button text={!isEditing ? "Dodaj" : "Promijeni"} />
     </form>
   );
 };
