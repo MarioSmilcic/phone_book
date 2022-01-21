@@ -1,19 +1,18 @@
 import Edit from "../../assets/edit.svg";
 import Delete from "../../assets/delete.svg";
-import styles from "./PhoneList.module.scss";
+import styles from "./ContactList.module.scss";
 
-const PhoneList = (props) => {
+const ContactList = (props) => {
   const { id } = props.contact;
+  const contact = props.contact;
 
   const DeleteContactHandler = () => {
     props.onDelete(id);
   };
 
   const EditContactHandler = () => {
-    props.onEdit(id);
-    console.log("Edit mode activated", props.contact);
+    props.onEdit(contact);
   };
-
   return (
     <table className={styles.table}>
       <tbody>
@@ -32,4 +31,4 @@ const PhoneList = (props) => {
   );
 };
 
-export default PhoneList;
+export default ContactList;
