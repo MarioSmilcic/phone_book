@@ -1,4 +1,4 @@
-@import "../Variables/Variables.module.scss";
+@import "../config";
 
 .main {
   @include displayFlex(space-between, center);
@@ -10,7 +10,7 @@
   }
 }
 
-.phoneListContainer {
+.contactListContainer {
   @include border(#14142b40);
   overflow: hidden;
   margin: 1rem;

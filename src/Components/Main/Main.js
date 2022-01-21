@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
 import PhoneListHeader from "../PhoneListHeader/PhoneListHeader";
-import PhoneListBody from "../PhoneListBody/PhoneListBody";
+import ContactList from "../ContactList/ContactList";
 import Modal from "../Modal/Modal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);
   const [contacts, setContacts] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [edit, setEdit] = useState();
+
+  //MODAL OPEN & CLOSE
 
   const OpenModalHandler = () => {
     setModal(true);
@@ -15,6 +19,7 @@ const Main = () => {
 
   const CloseModalHandler = () => {
     setModal(null);
+    setIsEditing(null);
   };
 
   //ADDING NEW CONTACT
@@ -35,15 +40,33 @@ const Main = () => {
     ]);
   };
 
-  //STORING AND GETING FROM LOCAL STORAGE
+  //EDIT
+
+  const startEditingHandler = (contact) => {
+    setIsEditing(true);
+
+    setEdit(contact);
+  };
+
+  const updatedContact = (updatedContact) => {
+    setEdit(updatedContact);
+    setContacts(
+      contacts.map((contact) => {
+        if (contact.id === updatedContact.id) {
+          contact = updatedContact;
+        }
+        return contact;
+      })
+    );
+  };
+
+  //STORING AND GETING CONTACTS FROM LOCAL STORAGE
 
   useEffect(() => {
     const temp = localStorage.getItem("addContact");
     const loadedContacts = JSON.parse(temp);
 
-    if (loadedContacts) {
-      setContacts(loadedContacts);
-    }
+    loadedContacts && setContacts(loadedContacts);
   }, []);
 
   useEffect(() => {
@@ -58,24 +81,32 @@ const Main = () => {
         <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
       </div>
       <div className={styles.container}>
-        <div className={styles.phoneListContainer}>
+        <div className={styles.contactListContainer}>
           <PhoneListHeader />
           {contacts.map((contact) => {
             return (
-              <PhoneListBody
+              <ContactList
                 key={contact.id}
                 name={contact.name}
                 lastName={contact.lastName}
                 email={contact.email}
                 phone={contact.phone}
-                onDelete={deleteContact}
                 contact={contact}
+                onDelete={deleteContact}
+                onEdit={startEditingHandler}
               />
             );
           })}
         </div>
-        {modal && (
-          <Modal onClose={CloseModalHandler} onSaveContact={newContact} />
+        {(modal || isEditing) && (
+          <Modal
+            onClose={CloseModalHandler}
+            onSaveContact={newContact}
+            edit={edit}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            onUpdateContact={updatedContact}
+          />
         )}
       </div>
     </>
