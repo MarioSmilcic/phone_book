@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
-import PhoneListHeader from "../PhoneListHeader/PhoneListHeader";
+import ContactListHeader from "../ContactListHeader/ContactListHeader";
 import ContactList from "../ContactList/ContactList";
 import Modal from "../Modal/Modal";
 
@@ -44,17 +44,13 @@ const Main = () => {
 
   const startEditingHandler = (contact) => {
     setIsEditing(true);
-
     setEdit(contact);
   };
 
   const updatedContact = (updatedContact) => {
-    setEdit(updatedContact);
     setContacts(
       contacts.map((contact) => {
-        if (contact.id === updatedContact.id) {
-          contact = updatedContact;
-        }
+        contact.id === updatedContact.id && (contact = updatedContact);
         return contact;
       })
     );
@@ -82,7 +78,7 @@ const Main = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.contactListContainer}>
-          <PhoneListHeader />
+          <ContactListHeader />
           {contacts.map((contact) => {
             return (
               <ContactList

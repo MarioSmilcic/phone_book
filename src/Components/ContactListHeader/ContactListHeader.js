@@ -1,6 +1,6 @@
-import styles from "./PhoneListHeader.module.scss";
+import styles from "./ContactListHeader.module.scss";
 
-const PhoneList = () => {
+const ContactListHeader = () => {
   return (
     <table className={styles.table}>
       <thead>
@@ -16,4 +16,4 @@ const PhoneList = () => {
   );
 };
 
-export default PhoneList;
+export default ContactListHeader;
