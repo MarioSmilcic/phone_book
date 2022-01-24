@@ -71,11 +71,7 @@ const Main = () => {
   }, [contacts]);
 
   return (
-    <div
-      className={`${
-        styles.main
-      } {(${!modal} || ${!isEditing}) && styles.notModal}`}
-    >
+    <div className={`${modal || isEditing ? styles.main : styles.notModal}`}>
       <div className={styles.kontakti}>
         <h4>Kontakti</h4>
         <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
@@ -114,3 +110,7 @@ const Main = () => {
 };
 
 export default Main;
+
+/* 
+${modal || isEditing}
+*/
