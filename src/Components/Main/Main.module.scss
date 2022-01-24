@@ -1,28 +1,36 @@
 @import "../config";
 
 .main {
-  @include displayFlex(space-between, center);
-  width: 20%;
-  margin: 1.5rem 1rem;
-  width: 65vw;
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "Kontakti ."
+    "Table Modal";
+  grid-gap: 1.4rem;
+  margin: 1.4rem;
+  margin-bottom: 3rem;
+
   h4 {
     @include font($textColor2, 1.5rem, 600);
   }
 }
 
+.notModal {
+  grid-template-columns: 100%;
+}
+
+.kontakti {
+  grid-area: Kontakti;
+  @include displayFlex(space-between, center);
+}
+
 .contactListContainer {
   @include border(#14142b40);
   overflow: hidden;
-  margin: 1rem;
-  width: 65vw;
+  grid-area: Table;
 }
-
-.container {
-  display: flex;
+.modal {
+  grid-area: Modal;
 }
-
-/* .flexContainer {
-  display: flex;
-  flex-direction: column;
-}
- */

@@ -71,29 +71,33 @@ const Main = () => {
   }, [contacts]);
 
   return (
-    <>
-      <div className={styles.main}>
+    <div
+      className={`${
+        styles.main
+      } {(${!modal} || ${!isEditing}) && styles.notModal}`}
+    >
+      <div className={styles.kontakti}>
         <h4>Kontakti</h4>
         <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
       </div>
-      <div className={styles.container}>
-        <div className={styles.contactListContainer}>
-          <ContactListHeader />
-          {contacts.map((contact) => {
-            return (
-              <ContactList
-                key={contact.id}
-                name={contact.name}
-                lastName={contact.lastName}
-                email={contact.email}
-                phone={contact.phone}
-                contact={contact}
-                onDelete={deleteContact}
-                onEdit={startEditingHandler}
-              />
-            );
-          })}
-        </div>
+      <div className={styles.contactListContainer}>
+        <ContactListHeader />
+        {contacts.map((contact) => {
+          return (
+            <ContactList
+              key={contact.id}
+              name={contact.name}
+              lastName={contact.lastName}
+              email={contact.email}
+              phone={contact.phone}
+              contact={contact}
+              onDelete={deleteContact}
+              onEdit={startEditingHandler}
+            />
+          );
+        })}
+      </div>
+      <div className={styles.modal}>
         {(modal || isEditing) && (
           <Modal
             onClose={CloseModalHandler}
@@ -105,7 +109,7 @@ const Main = () => {
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 
