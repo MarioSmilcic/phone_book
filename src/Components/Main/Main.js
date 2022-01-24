@@ -110,7 +110,3 @@ const Main = () => {
 };
 
 export default Main;
-
-/* 
-${modal || isEditing}
-*/
