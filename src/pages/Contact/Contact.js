@@ -1,13 +1,3 @@
-/* const Contact = () => {
-  return (
-    <div>
-      <p>Contact</p>
-    </div>
-  );
-};
-
-export default Contact; */
-
 import { useState } from "react";
 import Hamburger from "../../assets/hamburger.svg";
 import NavModal from "../../Components/Modal/NavModal";
