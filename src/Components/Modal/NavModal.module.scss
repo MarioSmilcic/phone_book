@@ -1,0 +1,34 @@
+@import "../config";
+
+.navModal {
+  background: $modalColor;
+  z-index: 100;
+  width: 100%;
+  height: 95vh;
+  position: absolute;
+  display: none;
+
+  img {
+    margin: 1.4rem;
+    align-self: flex-end;
+    width: 14px;
+    height: 14px;
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+  li a {
+    @include font($textColor2, 1.5rem, 600);
+    text-decoration: none;
+    color: $textColor2;
+  }
+  @include media($md) {
+    @include displayFlex(flex-start, center);
+    flex-direction: column;
+  }
+}
