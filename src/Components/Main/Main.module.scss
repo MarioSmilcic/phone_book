@@ -16,7 +16,6 @@
   }
   @include media($lg) {
     grid-template-columns: 1fr;
-    // grid-template-rows: auto;
     grid-template-areas:
       "Kontakti "
       " Modal"
