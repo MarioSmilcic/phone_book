@@ -4,20 +4,19 @@
   @include border(rgba(20, 20, 43, 0.25));
   @include displayFlex(flex-start, center);
   flex-direction: column;
-  width: auto;
-  margin: 1rem;
-  padding: 0 1.5rem;
-  margin-left: 0;
+  width: 28rem;
+  height: 100%;
   background-color: #f9fafc;
   Button {
     width: 25.25rem;
     margin-top: 0.8rem;
-    // padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
+    @include media($sm) {
+      width: 20rem;
+    }
   }
   h4 {
     @include font($textColor2, 1.4rem, 600);
-    margin: 1rem;
   }
   img {
     width: 14px;
@@ -36,7 +35,7 @@
 
 .modalHeader {
   @include displayFlex(space-between, center);
-  width: 100%;
+  width: 25.25rem;
 }
 
 .input {
@@ -46,6 +45,9 @@
   opacity: 0.5;
   box-sizing: border-box;
   margin: 0.8rem;
-  width: 100%;
+  width: 25.25rem;
   height: 3.5rem;
+  @include media($sm) {
+    width: 20rem;
+  }
 }

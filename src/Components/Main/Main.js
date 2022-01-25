@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import styles from "./Main.module.scss";
 import Button from "../Button/Button";
+import Hamburger from "../../assets/hamburger.svg";
 import ContactListHeader from "../ContactListHeader/ContactListHeader";
 import ContactList from "../ContactList/ContactList";
 import Modal from "../Modal/Modal";
+import NavModal from "../Modal/NavModal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);
   const [contacts, setContacts] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [edit, setEdit] = useState();
+  const [navModal, setNavModal] = useState(false);
 
   //MODAL OPEN & CLOSE
 
@@ -20,6 +23,14 @@ const Main = () => {
   const CloseModalHandler = () => {
     setModal(null);
     setIsEditing(null);
+  };
+
+  const OpenNavModal = () => {
+    setNavModal(true);
+  };
+
+  const CloseNavModal = () => {
+    setNavModal(null);
   };
 
   //ADDING NEW CONTACT
@@ -72,11 +83,15 @@ const Main = () => {
 
   return (
     <>
-      <div className={styles.main}>
-        <h4>Kontakti</h4>
-        <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
-      </div>
-      <div className={styles.container}>
+      {navModal && <NavModal onClose={CloseNavModal} />}
+      <div className={`${modal || isEditing ? styles.main : styles.notModal}`}>
+        <div className={styles.kontakti}>
+          <div className={styles.innerKontakti}>
+            <img src={Hamburger} alt="hamburger" onClick={OpenNavModal} />
+            <h4>Kontakti</h4>
+          </div>
+          <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
+        </div>
         <div className={styles.contactListContainer}>
           <ContactListHeader />
           {contacts.map((contact) => {
@@ -94,16 +109,18 @@ const Main = () => {
             );
           })}
         </div>
-        {(modal || isEditing) && (
-          <Modal
-            onClose={CloseModalHandler}
-            onSaveContact={newContact}
-            edit={edit}
-            isEditing={isEditing}
-            setIsEditing={setIsEditing}
-            onUpdateContact={updatedContact}
-          />
-        )}
+        <div className={styles.modal}>
+          {(modal || isEditing) && (
+            <Modal
+              onClose={CloseModalHandler}
+              onSaveContact={newContact}
+              edit={edit}
+              isEditing={isEditing}
+              setIsEditing={setIsEditing}
+              onUpdateContact={updatedContact}
+            />
+          )}
+        </div>
       </div>
     </>
   );
