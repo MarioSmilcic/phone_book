@@ -14,6 +14,14 @@
   h4 {
     @include font($textColor2, 1.5rem, 600);
   }
+  @include media($lg) {
+    grid-template-columns: 1fr;
+    // grid-template-rows: auto;
+    grid-template-areas:
+      "Kontakti "
+      " Modal"
+      "Table";
+  }
 }
 
 .notModal {
@@ -35,6 +43,10 @@
 .kontakti {
   grid-area: Kontakti;
   @include displayFlex(space-between, center);
+  @include media($sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .innerKontakti {
   display: flex;
@@ -60,4 +72,7 @@
 }
 .modal {
   grid-area: Modal;
+  @include media($lg) {
+    grid-area: Modal;
+  }
 }
