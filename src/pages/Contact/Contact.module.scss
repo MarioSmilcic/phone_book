@@ -1,0 +1,16 @@
+@import "../../Components/config";
+
+.contact {
+  display: flex;
+  img {
+    display: none;
+    margin: 1rem;
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+    @include media($md) {
+      display: flex;
+    }
+  }
+}
