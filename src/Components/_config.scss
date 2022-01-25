@@ -5,6 +5,7 @@ $textColor1: #fff;
 $textColor2: #000;
 $textColor3: #14142b;
 $borderColor: #14142b;
+$modalColor: #f9fafc;
 
 //MIXINS
 
@@ -32,3 +33,17 @@ $borderColor: #14142b;
   border: 1px solid $color;
   border-radius: 16px;
 }
+
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+//MEDIA SIZES
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;

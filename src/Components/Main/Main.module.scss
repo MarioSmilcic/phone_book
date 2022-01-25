@@ -36,6 +36,22 @@
   grid-area: Kontakti;
   @include displayFlex(space-between, center);
 }
+.innerKontakti {
+  display: flex;
+  img {
+    display: none;
+  }
+  @include media($md) {
+    img {
+      display: flex;
+      margin-right: 1rem;
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
+    }
+  }
+}
 
 .contactListContainer {
   @include border(#14142b40);

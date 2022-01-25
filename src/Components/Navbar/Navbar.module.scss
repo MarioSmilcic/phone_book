@@ -32,6 +32,11 @@
       }
     }
   }
+  @include media($md) {
+    ul {
+      display: none;
+    }
+  }
 }
 
 .logo {
