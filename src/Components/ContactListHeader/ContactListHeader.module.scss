@@ -3,6 +3,9 @@
 .table {
   @include table();
   @include font($textColor1, 1.1rem, 600);
+  @include media($xs) {
+    font-size: 0.8rem;
+  }
   height: 4.125rem;
   thead,
   tr {
@@ -13,9 +16,12 @@
     padding: 1.2rem;
     overflow: hidden;
     white-space: nowrap;
-    // padding-top: 1rem;
-    // padding-bottom: 1rem;
+
     background: $primaryColor;
     text-align: left;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+    @include media($md) {
+      overflow: visible;
+    }
   }
 }

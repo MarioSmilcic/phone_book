@@ -93,7 +93,9 @@ const Main = () => {
           <Button text={"Dodaj Novi"} onClick={OpenModalHandler} />
         </div>
         <div className={styles.contactListContainer}>
-          <ContactListHeader />
+          <div className={styles.contactListHeader}>
+            <ContactListHeader />
+          </div>
           {contacts.map((contact) => {
             return (
               <ContactList

@@ -12,8 +12,15 @@ $modalColor: #f9fafc;
 @mixin table {
   display: grid;
   border-collapse: collapse;
-  grid-template-columns: 1fr 1fr 1.6fr 1fr 0.6fr;
+  // grid-template-columns: 1fr 1fr 1.6fr 1fr 0.6fr;
+  grid-template-columns: 1fr 1fr 2fr 1fr 0.7fr;
   line-height: 1.5rem;
+
+  @include media($md) {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(5, 3.5rem);
+  }
 }
 
 @mixin font($color, $size, $weight) {
@@ -42,8 +49,10 @@ $modalColor: #f9fafc;
 
 //MEDIA SIZES
 
-$sm: 576px;
+$xs: 350px;
+// $sm: 576px;
+$sm: 500px;
 $md: 768px;
 $lg: 992px;
-// $xl: 1200px;
-// $xxl: 1400px;
+$xl: 1200px;
+$xxl: 1400px;
