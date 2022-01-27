@@ -14,11 +14,18 @@
   h4 {
     @include font($textColor2, 1.5rem, 600);
   }
-  @include media($lg) {
+  // @include media($lg) {
+  //   grid-template-columns: 1fr;
+  //   grid-template-areas:
+  //     "Kontakti "
+  //     " Modal"
+  //     "Table";
+  // }
+  @include media($xxl) {
     grid-template-columns: 1fr;
     grid-template-areas:
       "Kontakti "
-      " Modal"
+      "Modal"
       "Table";
   }
 }
@@ -68,10 +75,24 @@
   @include border(#14142b40);
   overflow: hidden;
   grid-area: Table;
+
+  @include media($md) {
+    border: none;
+  }
 }
 .modal {
+  // grid-area: Modal;
+  // @include media($lg) {
+  //   grid-area: Modal;
+  // }
   grid-area: Modal;
-  @include media($lg) {
+  @include media($xxl) {
     grid-area: Modal;
+  }
+}
+
+.contactListHeader {
+  @include media($md) {
+    display: none;
   }
 }
