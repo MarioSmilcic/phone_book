@@ -3,6 +3,7 @@
 .button {
   @include displayFlex(center, center);
   @include font($textColor1, 1rem, 600);
+
   background-color: $primaryColor;
   width: 15rem;
   height: 3.5rem;
@@ -14,5 +15,8 @@
     color: $textColor2;
     background-color: #fff;
     border: 1px solid $primaryColor;
+  }
+  @include media($sm) {
+    font-size: 0.9rem;
   }
 }

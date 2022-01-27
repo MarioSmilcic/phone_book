@@ -3,18 +3,23 @@
 .table {
   @include table();
   @include font($textColor3, 1rem, 300);
+  @include media($xs) {
+    font-size: 0.8rem;
+  }
 
   tbody,
   tr {
     display: contents;
+
+    @include media($md) {
+      @include table();
+    }
   }
 
   td {
     padding: 1.2rem;
-    overflow: hidden;
     white-space: nowrap;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+
     background: rgba(255, 255, 255, 0.002);
   }
 
@@ -23,5 +28,32 @@
     &:hover {
       cursor: pointer;
     }
+  }
+  @include media($md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contactListHeader {
+  display: none;
+  @include media($md) {
+    @include table();
+  }
+}
+
+.container {
+  @include media($md) {
+    display: grid;
+    grid-template-columns: auto 100%;
+
+    @include border(rgba(0, 0, 0, 0.12));
+    margin-bottom: 1.4rem;
+    overflow: hidden;
+  }
+
+  @include media($sm) {
+    display: grid;
+    grid-template-columns: auto;
   }
 }
