@@ -16,27 +16,27 @@ const Contact = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       {navModal && <NavModal onClose={CloseNavModal} />}
-      <div className={styles.contact}>
-        <img src={Hamburger} alt="hamburger" onClick={OpenNavModal} />
-        <h4>Kontakt stranica</h4>
+      <div className={styles.container}>
+        <div className={styles.contact}>
+          <img src={Hamburger} alt="hamburger" onClick={OpenNavModal} />
+          <h4>Kontakt stranica</h4>
+        </div>
+        <form className={styles.form}>
+          <div>
+            <input type="text" placeholder="Ime i prezime" />
+          </div>
+          <div>
+            <input type="email" placeholder="Email adresa" />
+          </div>
+          <div>
+            <textarea placeholder="Vaša poruka" />
+          </div>
+          <Button text="Pošalji" />
+        </form>
       </div>
-      <form className={styles.form}>
-        <div>
-          <input type="text" placeholder="Ime i prezime" />
-        </div>
-
-        <div>
-          <input type="email" placeholder="Email adresa" />
-        </div>
-
-        <div>
-          <textarea placeholder="Vaša poruka" />
-        </div>
-        <Button text="Pošalji" />
-      </form>
-    </div>
+    </>
   );
 };
 

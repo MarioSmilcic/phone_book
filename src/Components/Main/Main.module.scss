@@ -57,7 +57,7 @@
 }
 
 .contactListContainer {
-  @include border(#14142b40);
+  @include border($borderColor2);
   overflow: hidden;
   grid-area: Table;
 
