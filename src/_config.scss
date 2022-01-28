@@ -9,6 +9,7 @@ $textColor1: #fff;
 $textColor2: #000;
 $textColor3: #14142b;
 $borderColor: #14142b;
+$borderColor2: #14142b40;
 $modalColor: #f9fafc;
 
 //MIXINS
@@ -52,6 +53,24 @@ $modalColor: #f9fafc;
 @mixin media($width) {
   @media (max-width: $width) {
     @content;
+  }
+}
+
+//ANIMATIONS
+
+@mixin animation() {
+  animation: wiggle 300ms 8 none;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(10deg);
   }
 }
 
