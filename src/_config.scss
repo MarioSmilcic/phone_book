@@ -16,7 +16,6 @@ $modalColor: #f9fafc;
 @mixin table {
   display: grid;
   border-collapse: collapse;
-  // grid-template-columns: 1fr 1fr 1.6fr 1fr 0.6fr;
   // grid-template-columns: 1fr 1fr 2fr 1fr 0.7fr;
   grid-template-columns: 15% 20% 35% 20% 10%;
   line-height: 1.5rem;
