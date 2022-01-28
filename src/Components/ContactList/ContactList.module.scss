@@ -1,16 +1,20 @@
-@import "../config";
+@import "../../config";
 
 .table {
   @include table();
   @include font($textColor3, 1rem, 300);
+  line-height: 143%;
+  letter-spacing: 0.15px;
   @include media($xs) {
     font-size: 0.8rem;
+  }
+  tbody {
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
   }
 
   tbody,
   tr {
     display: contents;
-
     @include media($md) {
       @include table();
     }
@@ -19,7 +23,6 @@
   td {
     padding: 1.2rem;
     white-space: nowrap;
-
     background: rgba(255, 255, 255, 0.002);
   }
 
