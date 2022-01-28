@@ -2,6 +2,11 @@
 
 .container {
   margin: 1.4rem;
+  h4 {
+    @include font($textColor2, 1.5rem, 600);
+    line-height: 1.75rem;
+    letter-spacing: 0.01em;
+  }
   @include media($sm) {
     position: absolute;
   }
@@ -19,11 +24,6 @@
     @include media($md) {
       display: flex;
     }
-  }
-  h4 {
-    @include font($textColor2, 1.5rem, 600);
-    line-height: 1.75rem;
-    letter-spacing: 0.01em;
   }
 }
 

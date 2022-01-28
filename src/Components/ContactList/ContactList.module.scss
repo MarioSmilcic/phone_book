@@ -31,7 +31,6 @@
     &:hover,
     &:active {
       cursor: pointer;
-      // animation: wiggle 200ms 8 none;
       @include animation();
     }
   }
@@ -63,15 +62,3 @@
     grid-template-columns: auto;
   }
 }
-
-// @keyframes wiggle {
-//   0% {
-//     transform: rotateZ(0);
-//   }
-//   50% {
-//     transform: rotateZ(-10deg);
-//   }
-//   100% {
-//     transform: rotateZ(10deg);
-//   }
-// }
