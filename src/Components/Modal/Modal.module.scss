@@ -32,8 +32,7 @@
     height: 14px;
     &:hover {
       cursor: pointer;
-    }
-    @include media($sm) {
+      @include animation();
     }
   }
   input {

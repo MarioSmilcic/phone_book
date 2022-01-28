@@ -28,8 +28,11 @@
 
   img {
     margin-right: 1.2rem;
-    &:hover {
+    &:hover,
+    &:active {
       cursor: pointer;
+      // animation: wiggle 200ms 8 none;
+      @include animation();
     }
   }
   @include media($md) {
@@ -60,3 +63,15 @@
     grid-template-columns: auto;
   }
 }
+
+// @keyframes wiggle {
+//   0% {
+//     transform: rotateZ(0);
+//   }
+//   50% {
+//     transform: rotateZ(-10deg);
+//   }
+//   100% {
+//     transform: rotateZ(10deg);
+//   }
+// }
