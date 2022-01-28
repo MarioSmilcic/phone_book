@@ -1,4 +1,4 @@
-@import "../config";
+@import "../../config";
 
 .main {
   display: grid;
@@ -13,37 +13,22 @@
 
   h4 {
     @include font($textColor2, 1.5rem, 600);
+    line-height: 1.75rem;
+    letter-spacing: 0.01em;
   }
-  // @include media($lg) {
-  //   grid-template-columns: 1fr;
-  //   grid-template-areas:
-  //     "Kontakti "
-  //     " Modal"
-  //     "Table";
-  // }
-  @include media($xxl) {
+
+  @include media($xl) {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "Kontakti "
+      "Kontakti"
       "Modal"
       "Table";
   }
 }
 
 .notModal {
-  display: grid;
+  @extend .main;
   grid-template-columns: 100%;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "Kontakti ."
-    "Table Modal";
-  grid-gap: 1.4rem;
-  margin: 1.4rem;
-  margin-bottom: 3rem;
-
-  h4 {
-    @include font($textColor2, 1.5rem, 600);
-  }
 }
 
 .kontakti {
@@ -81,14 +66,7 @@
   }
 }
 .modal {
-  // grid-area: Modal;
-  // @include media($lg) {
-  //   grid-area: Modal;
-  // }
   grid-area: Modal;
-  @include media($xxl) {
-    grid-area: Modal;
-  }
 }
 
 .contactListHeader {
