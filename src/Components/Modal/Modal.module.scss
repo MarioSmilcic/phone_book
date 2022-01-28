@@ -1,4 +1,4 @@
-@import "../config";
+@import "../../config";
 
 .modal {
   @include border(rgba(20, 20, 43, 0.25));
@@ -24,6 +24,7 @@
     @include font($textColor2, 1.4rem, 600);
     @include media($sm) {
       font-size: 1rem;
+      letter-spacing: 0.01em;
     }
   }
   img {
@@ -40,6 +41,8 @@
     border-color: transparent;
     outline: none;
     padding-left: 1rem;
+    line-height: $lh;
+    letter-spacing: 0.75px;
   }
 }
 

@@ -1,5 +1,9 @@
 //VARIABLES
 
+$lh: 1.5rem;
+
+//COLORS
+
 $primaryColor: #3faad7;
 $textColor1: #fff;
 $textColor2: #000;
@@ -13,8 +17,13 @@ $modalColor: #f9fafc;
   display: grid;
   border-collapse: collapse;
   // grid-template-columns: 1fr 1fr 1.6fr 1fr 0.6fr;
-  grid-template-columns: 1fr 1fr 2fr 1fr 0.7fr;
+  // grid-template-columns: 1fr 1fr 2fr 1fr 0.7fr;
+  grid-template-columns: 15% 20% 35% 20% 10%;
   line-height: 1.5rem;
+
+  @include media($xxl) {
+    grid-template-columns: 15% 15% 35% 20% 15%;
+  }
 
   @include media($md) {
     display: grid;

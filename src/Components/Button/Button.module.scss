@@ -1,9 +1,10 @@
-@import "../config";
+@import "../../config";
 
 .button {
   @include displayFlex(center, center);
   @include font($textColor1, 1rem, 600);
-
+  line-height: 1.625rem;
+  letter-spacing: 0.46px;
   background-color: $primaryColor;
   width: 15rem;
   height: 3.5rem;
