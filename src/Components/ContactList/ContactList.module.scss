@@ -8,7 +8,6 @@
   @include table();
   align-items: center;
   grid-template-areas: "dName dLastName dEmail dPhone dAction";
-
   background: rgba(255, 255, 255, 0.002);
 
   img {
@@ -32,7 +31,7 @@
       "action dAction";
 
     @include border(rgba(0, 0, 0, 0.12));
-    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: $bShadowB;
 
     margin-bottom: 1.4rem;
     overflow: hidden;
@@ -55,6 +54,8 @@
 
     font-size: 0.9rem;
     align-items: stretch;
+    // background: lighten($primaryColor, 30%);
+    // background: $modalColor;
   }
 }
 
@@ -98,12 +99,9 @@
   @include media($md) {
     display: grid;
     background: $primaryColor;
-
     @include font($textColor1, 1.1rem, 600);
     letter-spacing: 0.17px;
-    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
-
-    background: $primaryColor;
+    box-shadow: $bShadowB;
     line-height: $lh;
 
     @include media($sm) {

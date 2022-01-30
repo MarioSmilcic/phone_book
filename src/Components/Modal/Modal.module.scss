@@ -11,6 +11,10 @@
   @include media($sm) {
     width: 100%;
   }
+
+  // @include media($sm) {
+  //   width: auto;
+  // }
   Button {
     width: 25.25rem;
     margin-top: 0.8rem;
@@ -30,16 +34,14 @@
   img {
     width: 14px;
     height: 14px;
-    &:hover {
-      cursor: pointer;
-      @include animation();
-    }
+    @include hover();
   }
+
   input {
-    @include font($textColor3, 1rem, 300);
+    @include font($textColor3, 15px, 300);
     border-color: transparent;
     outline: none;
-    padding-left: 1rem;
+    text-indent: 1rem;
     line-height: $lh;
     letter-spacing: 0.75px;
   }

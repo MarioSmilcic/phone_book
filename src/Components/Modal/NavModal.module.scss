@@ -13,11 +13,7 @@
     align-self: flex-end;
     width: 14px;
     height: 14px;
-    &:hover,
-    &:active {
-      cursor: pointer;
-      @include animation();
-    }
+    @include hover();
   }
 
   ul {
