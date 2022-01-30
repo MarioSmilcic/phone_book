@@ -60,9 +60,11 @@
   @include border($borderColor2);
   overflow: hidden;
   grid-area: Table;
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
 
   @include media($md) {
     border: none;
+    box-shadow: none;
   }
 }
 .modal {

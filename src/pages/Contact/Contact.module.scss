@@ -7,9 +7,9 @@
     line-height: 1.75rem;
     letter-spacing: 0.01em;
   }
-  @include media($sm) {
-    position: absolute;
-  }
+  // @include media($sm) {
+  //   position: absolute;
+  // }
 }
 
 .contact {
@@ -36,8 +36,7 @@
   textarea {
     @include font($textColor3, 1rem, 300);
     @include border($borderColor2);
-    padding-left: 1rem;
-
+    text-indent: 1rem;
     height: 3.5rem;
     margin-bottom: 1.5rem;
   }
