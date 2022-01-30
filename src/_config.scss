@@ -2,6 +2,9 @@
 
 $lh: 1.5rem;
 
+$bShadowA: 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+$bShadowB: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+
 //COLORS
 
 $primaryColor: #3faad7;
@@ -42,6 +45,13 @@ $modalColor: #f9fafc;
   border-radius: 16px;
 }
 
+@mixin hover() {
+  &:active,
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 @mixin media($width) {
   @media (max-width: $width) {
     @content;
@@ -69,7 +79,6 @@ $modalColor: #f9fafc;
 //MEDIA SIZES
 
 $xs: 350px;
-// $sm: 576px;
 $sm: 500px;
 $md: 768px;
 $lg: 992px;

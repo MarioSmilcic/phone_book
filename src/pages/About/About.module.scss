@@ -14,10 +14,7 @@
   img {
     display: none;
     margin-right: 1rem;
-    &:hover,
-    &:active {
-      cursor: pointer;
-    }
+    @include hover();
     @include media($md) {
       display: flex;
     }
