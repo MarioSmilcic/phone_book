@@ -4,7 +4,10 @@
   @include font($textColor3, 1rem, 300);
   line-height: 143%;
   letter-spacing: 0.15px;
+
+  @include table();
   align-items: center;
+  grid-template-areas: "dName dLastName dEmail dPhone dAction";
 
   background: rgba(255, 255, 255, 0.002);
 
@@ -16,10 +19,6 @@
       @include animation();
     }
   }
-
-  @include table();
-
-  grid-template-areas: "dName dLastName dEmail dPhone dAction";
 
   @include media($md) {
     display: grid;
@@ -56,7 +55,6 @@
 
     font-size: 0.9rem;
     align-items: stretch;
-    // background: lighten($primaryColor, 42%);
   }
 }
 

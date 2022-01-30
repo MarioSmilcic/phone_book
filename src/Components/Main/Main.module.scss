@@ -29,6 +29,12 @@
 .notModal {
   @extend .main;
   grid-template-columns: 100%;
+
+  @include media($xl) {
+    grid-template-areas:
+      "Kontakti ."
+      "Table Modal";
+  }
 }
 
 .kontakti {

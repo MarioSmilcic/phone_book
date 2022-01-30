@@ -5,12 +5,8 @@
   @include font($textColor1, 1.1rem, 600);
   letter-spacing: 0.17px;
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
-
   background: $primaryColor;
-
   line-height: $lh;
-
   align-items: center;
-
   height: 4.125rem;
 }
