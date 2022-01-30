@@ -24,7 +24,7 @@ const Contact = () => {
           <h4>Kontakt stranica</h4>
         </div>
         <form className={styles.form}>
-          <h4>Unesite svoje podatke</h4>
+          <h4>Unesite Vaše podatke</h4>
           <div>
             <input type="text" placeholder="Ime i prezime" />
           </div>

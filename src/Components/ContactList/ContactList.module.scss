@@ -1,30 +1,12 @@
 @import "../../config";
 
-.table {
-  @include table();
+.container {
   @include font($textColor3, 1rem, 300);
   line-height: 143%;
   letter-spacing: 0.15px;
-  @include media($xs) {
-    font-size: 0.8rem;
-  }
-  tbody {
-    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
-  }
+  align-items: center;
 
-  tbody,
-  tr {
-    display: contents;
-    @include media($md) {
-      @include table();
-    }
-  }
-
-  td {
-    padding: 1.2rem;
-    white-space: nowrap;
-    background: rgba(255, 255, 255, 0.002);
-  }
+  background: rgba(255, 255, 255, 0.002);
 
   img {
     margin-right: 1.2rem;
@@ -34,31 +16,100 @@
       @include animation();
     }
   }
-  @include media($md) {
-    display: flex;
-    flex-direction: column;
-  }
-}
 
-.contactListHeader {
-  display: none;
-  @include media($md) {
-    @include table();
-  }
-}
+  @include table();
 
-.container {
+  grid-template-areas: "dName dLastName dEmail dPhone dAction";
+
   @include media($md) {
     display: grid;
-    grid-template-columns: auto 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+      "name dName"
+      "lastName dLastName"
+      "email dEmail"
+      "phone dPhone"
+      "action dAction";
 
     @include border(rgba(0, 0, 0, 0.12));
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+
     margin-bottom: 1.4rem;
     overflow: hidden;
   }
 
   @include media($sm) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-areas:
+      "name"
+      "dName"
+      "lastName"
+      "dLastName"
+      "email"
+      "dEmail"
+      "phone"
+      "dPhone"
+      "action"
+      "dAction";
+
+    font-size: 0.9rem;
+    align-items: stretch;
+    // background: lighten($primaryColor, 42%);
+  }
+}
+
+.name {
+  grid-area: name;
+}
+.lastName {
+  grid-area: lastName;
+}
+.email {
+  grid-area: email;
+}
+.phone {
+  grid-area: phone;
+}
+.action {
+  grid-area: action;
+}
+.dName {
+  grid-area: dName;
+}
+.dLastName {
+  grid-area: dLastName;
+}
+.dEmail {
+  grid-area: dEmail;
+}
+.dPhone {
+  grid-area: dPhone;
+}
+.dAction {
+  grid-area: dAction;
+}
+
+.name,
+.lastName,
+.email,
+.phone,
+.action {
+  display: none;
+  @include media($md) {
     display: grid;
-    grid-template-columns: auto;
+    background: $primaryColor;
+
+    @include font($textColor1, 1.1rem, 600);
+    letter-spacing: 0.17px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+
+    background: $primaryColor;
+    line-height: $lh;
+
+    @include media($sm) {
+      font-size: 0.9rem;
+    }
   }
 }
