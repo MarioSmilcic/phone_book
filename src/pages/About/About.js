@@ -39,7 +39,8 @@ const About = () => {
           <p>
             Aplikacija je rađena u programskom jeziku JavaScript i biblioteci
             React. Za promjenu stranica korištena je biblioteka React Router.
-            Svi podaci se čuvaju u locale storageu.
+            Svi podaci se čuvaju u locale storageu. Kroz sav rad korišteni su
+            Git/GitHub alati.
           </p>
           <p>
             Za styling su korišteni SASS (SCSS) i CSS Modules. Aplikacija je
