@@ -68,7 +68,7 @@ const Contact = () => {
       <div className={styles.container}>
         <div className={styles.contact}>
           <img src={Hamburger} alt="hamburger" onClick={OpenNavModal} />
-          <h4>Kontakt stranica</h4>
+          <h4>Kontakt Stranica</h4>
         </div>
         <form onSubmit={submitHandler} className={styles.form}>
           <h4>Unesite Vaše podatke</h4>

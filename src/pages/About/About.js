@@ -20,7 +20,7 @@ const About = () => {
       <div className={styles.about}>
         <div className={styles.header}>
           <img src={Hamburger} alt="hamburger" onClick={OpenNavModal} />
-          <h4>O nama</h4>
+          <h4>O Nama</h4>
         </div>
         <div>
           <p>
@@ -39,7 +39,7 @@ const About = () => {
           <p>
             Aplikacija je rađena u programskom jeziku JavaScript i biblioteci
             React. Za promjenu stranica korištena je biblioteka React Router.
-            Svi podaci se čuvaju u locale storageu. Kroz sav rad korišteni su
+            Svi podaci se čuvaju u locale storageu. Kroz rad su korišteni
             Git/GitHub alati.
           </p>
           <p>
