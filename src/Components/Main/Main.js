@@ -4,8 +4,8 @@ import Button from "../Button/Button";
 import Hamburger from "../../assets/hamburger.svg";
 import ContactListHeader from "../ContactListHeader/ContactListHeader";
 import ContactList from "../ContactList/ContactList";
-import Modal from "../Modal/Modal";
-import NavModal from "../Modal/NavModal";
+import Modal from "../Modals/Modal";
+import NavModal from "../Modals/NavModal";
 
 const Main = () => {
   const [modal, setModal] = useState(false);
@@ -50,7 +50,6 @@ const Main = () => {
       }),
     ]);
   };
-
   //EDIT
 
   const startEditingHandler = (contact) => {
