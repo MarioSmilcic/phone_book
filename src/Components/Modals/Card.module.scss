@@ -1,0 +1,27 @@
+@import "../../config";
+
+.card {
+  position: fixed;
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -250px;
+
+  z-index: 1000;
+  @include border($modalColor);
+  background: $modalColor;
+
+  @include displayFlex(center, center);
+  flex-direction: column;
+
+  @include font($textColor2, 1.5rem, 600);
+
+  @include media($sm) {
+    width: 80%;
+    left: 10%;
+    margin-left: auto;
+    font-size: 1rem;
+  }
+}
