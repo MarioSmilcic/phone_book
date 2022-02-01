@@ -12,9 +12,6 @@
     width: 100%;
   }
 
-  // @include media($sm) {
-  //   width: auto;
-  // }
   Button {
     width: 25.25rem;
     margin-top: 0.8rem;
@@ -24,6 +21,7 @@
       width: 90%;
     }
   }
+
   h4 {
     @include font($textColor2, 1.4rem, 600);
     @include media($sm) {
@@ -31,6 +29,7 @@
       letter-spacing: 0.01em;
     }
   }
+
   img {
     width: 14px;
     height: 14px;

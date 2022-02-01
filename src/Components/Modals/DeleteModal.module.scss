@@ -1,0 +1,38 @@
+@import "../../config";
+
+.deleteModal {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 25rem;
+  overflow: hidden;
+  z-index: 1000;
+  @include border($modalColor);
+  background: #fff;
+  p {
+    @include font($textColor2, 1.5rem, 600);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @include media($sm) {
+    width: 80%;
+    left: 1rem;
+    Button {
+      width: 100%;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.button {
+  @include displayFlex(center, center);
+  gap: 2rem;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  @include media($sm) {
+    flex-direction: column;
+  }
+}

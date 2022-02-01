@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Hamburger from "../../assets/hamburger.svg";
-import NavModal from "../../Components/Modal/NavModal";
+import NavModal from "../../Components/Modals/NavModal";
 import styles from "./Contact.module.scss";
 import Button from "../../Components/Button/Button";
 
