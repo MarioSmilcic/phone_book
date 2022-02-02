@@ -76,6 +76,7 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Ime i prezime"
+              required
               onChange={NameHandler}
               value={enteredName}
             />
@@ -84,6 +85,7 @@ const Contact = () => {
             <input
               type="email"
               placeholder="Email adresa"
+              required
               onChange={EmailHandler}
               value={enteredEmail}
             />
@@ -91,6 +93,7 @@ const Contact = () => {
           <div>
             <textarea
               placeholder="Vaša poruka"
+              required
               onChange={MessageHandler}
               value={enteredMessage}
             />
