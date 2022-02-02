@@ -3,6 +3,7 @@
 .message {
   @include displayFlex(center, center);
   flex-direction: column;
+  text-align: center;
 
   @include media($sm) {
     Button {
