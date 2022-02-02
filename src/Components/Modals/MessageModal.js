@@ -6,7 +6,7 @@ const MessageModal = (props) => {
   return (
     <Card>
       <div className={styles.message}>
-        <p>Vaša poruka je poslana</p>
+        <p>{props.text}</p>
         <Button text="Povratak na stranicu" onClick={props.onCancel} />
       </div>
     </Card>

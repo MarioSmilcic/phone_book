@@ -101,7 +101,12 @@ const Contact = () => {
           <Button text="Pošalji" />
         </form>
       </div>
-      {messageModal && <MessageModal onCancel={CloseMessageHandler} />}
+      {messageModal && (
+        <MessageModal
+          text="Vaša poruka je poslana"
+          onCancel={CloseMessageHandler}
+        />
+      )}
       {backdrop && <Backdrop onCancel={CloseMessageHandler} />}
     </>
   );
