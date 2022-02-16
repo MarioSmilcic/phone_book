@@ -34,7 +34,7 @@ const About = () => {
             zatvara klikom na pozadinu ili dugme "Ne", a ukoliko kliknete "Da"
             kontakt će biti obrisan. Na stranici "Kontakt" nalazi se kontakt
             forma. Klikom na dugme "Pošalji" pojaviće se poruka kojom se
-            potvrđuje slanje, a u konzoli se može vidjeti novi objekat.
+            potvrđuje slanje.
           </p>
           <p>
             Aplikacija je rađena u programskom jeziku JavaScript i biblioteci
