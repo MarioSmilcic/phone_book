@@ -15,7 +15,9 @@
   ul {
     list-style: none;
     display: flex;
+
     li a {
+      display: flex;
       text-decoration: none;
       color: $textColor1;
       font-size: 1rem;
@@ -32,6 +34,7 @@
         letter-spacing: 0.46px;
       }
     }
+
   }
   @include media($md) {
     ul {

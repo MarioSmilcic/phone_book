@@ -5,14 +5,12 @@ import styles from "./Contact.module.scss";
 import Button from "../../Components/Button/Button";
 import MessageModal from "../../Components/Modals/MessageModal";
 import Backdrop from "../../Components/Modals/Backdrop";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [navModal, setNavModal] = useState(false);
   const [messageModal, setMessageModal] = useState(false);
   const [backdrop, setBackdrop] = useState(false);
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredMessage, setEnteredMessage] = useState("");
 
   const OpenNavModal = () => {
     setNavModal(true);
@@ -32,34 +30,26 @@ const Contact = () => {
     setBackdrop(null);
   };
 
-  const NameHandler = (e) => {
-    setEnteredName(e.target.value);
-  };
-
-  const EmailHandler = (e) => {
-    setEnteredEmail(e.target.value);
-  };
-
-  const MessageHandler = (e) => {
-    setEnteredMessage(e.target.value);
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const message = {
-      name: enteredName,
-      email: enteredEmail,
-      message: enteredMessage,
-    };
-
-    console.log(message);
-
+    emailjs
+      .sendForm(
+        "gmail",
+        "template_9xf3v9r",
+        e.target,
+        "user_eqs0VfUiOpZzQx5UKtDAM"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     MessageModalHandler();
-
-    setEnteredName("");
-    setEnteredEmail("");
-    setEnteredMessage("");
+    e.target.reset();
   };
 
   return (
@@ -77,8 +67,7 @@ const Contact = () => {
               type="text"
               placeholder="Ime i prezime"
               required
-              onChange={NameHandler}
-              value={enteredName}
+              name="name"
             />
           </div>
           <div>
@@ -86,17 +75,11 @@ const Contact = () => {
               type="email"
               placeholder="Email adresa"
               required
-              onChange={EmailHandler}
-              value={enteredEmail}
+              name="email"
             />
           </div>
           <div>
-            <textarea
-              placeholder="Vaša poruka"
-              required
-              onChange={MessageHandler}
-              value={enteredMessage}
-            />
+            <textarea placeholder="Vaša poruka" required name="message" />
           </div>
           <Button text="Pošalji" />
         </form>
